@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgentTrace</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: #0f1117; color: #e6e8ee; }
+    header { padding: 12px 20px; border-bottom: 1px solid #262a36; display: flex; gap: 12px; align-items: center; }
+    header h1 { font-size: 18px; margin: 0; }
+    header span { color: #8b93a7; font-size: 13px; }
+    .layout { display: grid; grid-template-columns: 280px 1fr; height: calc(100vh - 50px); }
+    aside { border-right: 1px solid #262a36; padding: 14px; overflow-y: auto; }
+    main { padding: 16px 20px; overflow-y: auto; }
+    input, button { font: inherit; }
+    input[type=text] { width: 100%; padding: 8px 10px; background: #181b24; border: 1px solid #2d3242; color: inherit; border-radius: 6px; }
+    button { padding: 7px 12px; border-radius: 6px; border: 1px solid #343a4d; background: #20243099; color: inherit; cursor: pointer; }
+    button:hover { background: #2a3042; }
+    button.primary { background: #3b6ef5; border-color: #3b6ef5; }
+    button:disabled { opacity: .4; cursor: default; }
+    .row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+    .run { padding: 8px; border-radius: 6px; cursor: pointer; margin-top: 6px; border: 1px solid transparent; font-size: 13px; }
+    .run:hover { background: #181b24; }
+    .run.sel { border-color: #3b6ef5; background: #181b24; }
+    .run small { color: #8b93a7; display: block; margin-top: 2px; }
+    .badge { font-size: 11px; padding: 1px 7px; border-radius: 10px; background: #2a3042; margin-left: 6px; }
+    .badge.running { background: #1d5c3a; } .badge.paused { background: #6b5a14; }
+    .badge.error, .badge.stopped { background: #6b2323; } .badge.finished { background: #234a6b; }
+    .step { border-left: 3px solid #444; background: #151821; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 14px; }
+    .step .kind { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #8b93a7; display: flex; justify-content: space-between; }
+    .step pre { margin: 4px 0 0; white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, monospace; font-size: 13px; }
+    .bar { height: 3px; background: #3b6ef5; margin-top: 6px; border-radius: 2px; }
+    .k-thought { border-color: #8b7cf6; } .k-tool_call { border-color: #e0a030; } .k-tool_result { border-color: #3fb27f; }
+    .k-redirect { border-color: #e5484d; } .k-final { border-color: #3b6ef5; background: #172036; } .k-error { border-color: #e5484d; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stats { display: flex; gap: 16px; font-size: 13px; color: #aab1c5; margin: 6px 0 10px; }
+    h3 { margin: 0 0 4px; font-size: 15px; }
+    .muted { color: #8b93a7; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header><h1>AgentTrace</h1><span>watch, pause and redirect an AI agent while it works</span></header>
+  <div id="root"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

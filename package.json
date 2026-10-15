@@ -1,0 +1,25 @@
+{
+  "name": "agenttrace",
+  "version": "1.0.0",
+  "description": "Live console to watch, pause and redirect an AI agent while it works",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild client/main.tsx --bundle --outfile=public/app.js --jsx=automatic --minify",
+    "dev": "npm run build && tsx server/index.ts",
+    "start": "tsx server/index.ts",
+    "test": "tsx server/test.ts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": { "node": ">=22.13" }
+}
